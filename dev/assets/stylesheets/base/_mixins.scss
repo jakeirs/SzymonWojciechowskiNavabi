@@ -1,0 +1,37 @@
+%clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin atSmall {
+  @media (min-width: $small) {
+    @content;
+  }
+}
+
+@mixin atMedium {
+  @media (min-width: $medium) {
+    @content;
+  }
+}
+
+@mixin atLarge {
+  @media (min-width: $large) {
+    @content;
+  }
+}
+
+@mixin atLargeMenu {
+  @media (min-width: $largeMenu) {
+    @content;
+  }
+}
+
+@mixin atExtraLarge {
+  @media (min-width: $extraLarge) {
+    @content;
+  }
+}

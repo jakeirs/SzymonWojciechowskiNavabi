@@ -1,0 +1,11 @@
+#directories
+
+node_modules/
+build/
+
+.git/
+
+#files
+
+*.log
+
