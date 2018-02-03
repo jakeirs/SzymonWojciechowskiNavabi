@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title Szymon Wojciechowski
+    meta(charset="UTF-8")
+    meta( name="viewport" content="initial-scale=1")
+    link(rel="stylesheet" href="assets/stylesheets/main.css")
+  body
+    main.product-container
+      div.product-card
+        img.product-card__image(src="./assets/img/medias_black.jpg")
+          
+        .product-card__info
+          .product-card__info__title Cette
+          .product-card__info__description Strumpfhose Dublin 60 den
+          .product-card__info__price 29,99€
+          .product-card__info__button Verfugbakeit
+
+        .product-modal
+          .product-modal__colors
+            .product-modal__color.product-modal__color--is-active
+              .product-modal__color__inner
+            .product-modal__color
+              .product-modal__color__inner              
+            .product-modal__color  
+              .product-modal__color__inner              
+          .product-modal__card
+            img.product-modal__img(src="./assets/img/medias_black.jpg")
+            .product-modal__info
+              .product-modal__info__title Strumpfhose Dublin 60 den
+              .product-modal__info__price 29,99€
+            .product-modal__sizes
+              .product-modal__size.product-modal__size--available 44
+              .product-modal__size 46
+              .product-modal__size 48
+              .product-modal__size 50
+              .product-modal__size 52
+              .product-modal__size 54
+              .product-modal__size 56
+            .product-modal__button Zum Produkt >
+
+    script(src="./assets/scripts/app.js")

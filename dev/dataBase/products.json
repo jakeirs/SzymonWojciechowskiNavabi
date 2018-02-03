@@ -1,0 +1,24 @@
+{
+  "1": {
+    "id": 1,
+    "price": "$30",
+    "colors": {
+      "red": {
+        "color": "red",
+        "sizes": [48, 52, 54, 58, 60, 62]
+      },
+      "black": {
+        "color": "black",
+        "sizes": [48, 60, 64]
+      },
+      "blue": {
+        "color": "blue",
+        "sizes": [ 52, 54, 62]
+      },
+      "orange": {
+        "color": "orange",
+        "sizes": [ 48, 52, 54, 62]
+      }
+    } 
+  }
+}

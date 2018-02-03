@@ -26,6 +26,12 @@ gulp.task('copyImg', function(){
   fs.copySync(src, dist);
 })
 
+//copy dataBase directory
+gulp.task('copyDataBase', function(){
+  var src = "./dev/dataBase";
+  var dist = "./build/dataBase";
+  fs.copySync(src, dist);
+})
 
 // sass
 gulp.task('sass', function() {
@@ -63,7 +69,12 @@ gulp.task('pug', function() {
 
 
 // pug refresh after 'pug' task's finished
-gulp.task('HTMLRefresh', ['copyHTML'], function() {
+// gulp.task('HTMLRefresh', ['copyHTML'], function() {
+//   browserSync.reload();
+// });
+
+// pug refresh after 'pug' task's finished
+gulp.task('pugRefresh', ['pug'], function() {
   browserSync.reload();
 });
 
@@ -96,10 +107,11 @@ gulp.task('scriptsRefresh', ['scripts'], function(){
 });
 
 // watch
-gulp.task('watch', ['clean', 'copyHTML', 'scripts', 'copyImg','sass', 'browser-sync'], function(){
+gulp.task('watch', ['clean', 'pug', 'copyDataBase', 'scripts', 'copyImg','sass', 'browser-sync'], function(){
   gulp.watch(['./dev/assets/stylesheets/**/*.scss'], ['sass']);
-  // gulp.watch(['./dev/*.pug'], ['pugRefresh'] );
-  gulp.watch(['./dev/*.html'], ['HTMLRefresh']);
+  gulp.watch(['./dev/*.pug'], ['pugRefresh'] );
+  gulp.watch(['./dev/dataBase/*.json'], ['copyDataBase'] );
+  // gulp.watch(['./dev/*.html'], ['HTMLRefresh']);
   gulp.watch(['./dev/assets/scripts/**/*.js'], ['scriptsRefresh']);
   gulp.watch(['./dev/assets/img/*.*'], ['copyImg']); 
 })
