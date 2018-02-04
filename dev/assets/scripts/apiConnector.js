@@ -1,6 +1,6 @@
 const URL_BASE = "/dataBase/product-";
 
-export const getProductColorDetails = (id = 1 ,color = 'black') => {
+export const getProductColorDetails = (id = 1, color = 'black') => {
   const url = `${URL_BASE}${id}-${color}.json`;
   return fetch(url)
     .then(data => data.json())
