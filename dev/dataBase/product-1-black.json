@@ -1,6 +1,33 @@
 {
-  "black": {
-    "color": "black",
-    "sizes": [48, 60, 64, 70]
+  "color": "black",
+  "sizes": {
+    "44": {
+      "size": 44,
+      "available": true
+    },
+    "46": {
+      "size": 46,
+      "available": false
+    },
+    "48": {
+      "size": 48,
+      "available": true
+    },
+    "50": {
+      "size": 50,
+      "available": false
+    },
+    "52": {
+      "size": 52,
+      "available": true
+    },
+    "54": {
+      "size": 54,
+      "available": false
+    },
+    "56": {
+      "size": 56,
+      "available": true
+    }      
   }
 }

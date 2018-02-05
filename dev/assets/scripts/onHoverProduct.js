@@ -5,8 +5,10 @@ class onHoverProduct {
     this.modal = productCard.querySelector('.product-modal');
     this.colors = this.modal.querySelector('.product-modal__colors');
     this.image = this.modal.querySelector('.product-modal__img');
+    this.sizesContainer = this.modal.querySelector('.product-modal__sizes');
     this.id = productCard.dataset.id;
     this.colorsData = [];
+    this.productColorDetails = {};
       
     // fetching data
     getProductColors(this.id).then((colors) => {
@@ -29,9 +31,20 @@ class onHoverProduct {
     if (target.classList.contains('product-modal__color__inner')) { 
       const clickedColor = target.dataset.color;
       getProductColorDetails(this.id, clickedColor)
-        .then((data) => this.insertFetchedProductColorDetails(data));
+        .then((data) => {
+          this.productColorDetails = data;    
+          this.insertFetchedProductColorDetails(data);
+        });
       // change photo
       this.insertColorImage(clickedColor);
+
+      // remove class is-active
+      Array.from(this.colors.children).map( colorButton => {
+        colorButton.classList.remove('product-modal__color--is-active');
+      });
+
+      // add class is-active      
+      target.parentElement.classList.add('product-modal__color--is-active');
     }
   }
 
@@ -61,7 +74,26 @@ class onHoverProduct {
   }
 
   insertFetchedProductColorDetails(details) {
-    console.log(details)
+
+    // remove all children first
+    while (this.sizesContainer.firstChild) {
+      this.sizesContainer.removeChild(this.sizesContainer.firstChild);
+    }
+
+    if (Object.keys(this.productColorDetails).length) {
+      const sizes = Object.values(this.productColorDetails.sizes);
+      sizes.map(size => {
+        let sizeHTMLElement;
+        if (size.available) {
+          sizeHTMLElement = `<div class="product-modal__size product-modal__size--available">${size.size}</div>`;              
+        } else {
+          sizeHTMLElement = `<div class="product-modal__size">${size.size}</div>`;          
+        }
+        
+        this.sizesContainer.insertAdjacentHTML('beforeend', sizeHTMLElement);
+        
+      });
+    }
   }
 
 }

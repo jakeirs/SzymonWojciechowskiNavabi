@@ -4,8 +4,7 @@ class Products {
   constructor() {
     this.productContainer = document.querySelector('.product-container');
     
-    this.productContainer.addEventListener('mouseover', this.onProductCardHover); 
-    
+    this.productContainer.addEventListener('mouseover', this.onProductCardHover);     
 
     // binding
     this.onProductCardHover = this.onProductCardHover.bind(this);
